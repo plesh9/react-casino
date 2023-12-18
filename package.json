@@ -1,5 +1,6 @@
 {
   "name": "react-casino",
+  "homepage": "https://plesh9.github.io/react-casino",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,33 +9,34 @@
     "build": "tsc && vite build",
     "format": "prettier src/**/*.{tsx,ts} --write",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@pixi/react": "^7.1.1",
-    "@reduxjs/toolkit": "^2.0.1",
-    "@types/node": "^20.10.5",
-    "path": "^0.12.7",
-    "pixi.js": "^7.3.2",
-    "prettier": "^3.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.0",
-    "sass": "^1.69.5",
-    "vite-tsconfig-paths": "^4.2.2"
+    "@reduxjs/toolkit": "^2.0.1",
+    "@pixi/react": "^7.1.1",
+    "pixi.js": "^7.3.2",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
+    "typescript": "^5.2.2",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
+    "vite": "^5.0.8",
+    "vite-tsconfig-paths": "^4.2.2",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.55.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "gh-pages": "^6.1.0"
   }
 }
