@@ -1,0 +1,169 @@
+@import "./base/root";
+@import "./base/animations";
+@import "src/constants/constans";
+@import "./base/null.scss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: toRem(3);
+    height: toRem(3);
+
+    &-thumb {
+        background-color: $accent;
+        border-radius: $radius;
+
+        [data-theme="dark"] & {
+            background-color: #d8deeb3d;
+        }
+    }
+}
+
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+    min-height: 100%;
+    @include flexColumn();
+    // Прижимаем footer
+    > main {
+        @include flexColumn();
+        flex: 1 1 auto;
+    }
+    // Фикс для слайдеров
+    > * {
+        min-width: 0;
+    }
+}
+
+// Текст  ======================================================================================================================================================================================================================
+h1 {
+    font-size: toRem(68);
+    font-weight: 600;
+    color: $dark;
+    line-height: 111.764706%; /* 76/68 */
+
+    & span {
+        @include color-accent();
+    }
+}
+
+h2 {
+    font-size: toRem(32);
+    font-weight: 600;
+    color: $dark;
+    line-height: 125%; /* 40/32 */
+
+    & span {
+        @include color-accent();
+    }
+
+    @media (max-width: $tablet) {
+        font-size: toRem(28);
+    }
+}
+
+h3 {
+    font-size: toRem(28);
+    font-weight: 600;
+    color: $dark;
+    line-height: 128.571429%; /* 36/28 */
+
+    @media (max-width: $tablet) {
+        font-size: toRem(24);
+    }
+}
+
+h4 {
+    font-size: toRem(24);
+    font-weight: 600;
+    color: $dark;
+    line-height: 133.333333%; /* 32/24 */
+
+    @media (max-width: $tablet) {
+        font-size: toRem(20);
+    }
+}
+
+h5 {
+    font-size: toRem(20);
+    font-weight: 600;
+    color: $dark;
+    line-height: 140%; /* 28/20 */
+}
+
+.text {
+    &_subtitle {
+        font-size: toRem(16);
+        font-weight: 400;
+        color: $mainColor;
+        margin-top: toRem(12);
+
+        @media (max-width: $tablet) {
+            margin-top: toRem(8);
+            font-size: toRem(14);
+        }
+    }
+
+    &_accent {
+        @include color-accent();
+
+        [data-theme="dark"] & {
+            color: $dark;
+            -webkit-text-fill-color: initial;
+        }
+    }
+
+    &_invalid {
+        color: $red;
+        font-size: toRem(14);
+    }
+}
+
+input,
+textarea {
+    width: 100%;
+
+    font-size: toRem(16);
+    line-height: 137.5%; /* 22/16 */
+    font-weight: 600;
+    color: $dark;
+
+    padding: toRem(16);
+    background-color: transparent;
+    border: toRem(1) solid $grey_pale;
+    border-radius: $radius;
+    outline: none;
+
+    &::placeholder {
+        font-weight: 400;
+        color: $mainColor;
+    }
+
+    &:focus {
+        outline: toRem(1) solid $accent_light;
+    }
+
+    &._invalid {
+        outline: none;
+        color: $red;
+        border-color: $red;
+
+        &::placeholder {
+            color: $red;
+        }
+    }
+}
+
+input {
+    height: toRem(48);
+}
+
+textarea {
+    height: toRem(130);
+}
