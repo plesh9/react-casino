@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 import { AuthLayout, GamesLayout, MainLayout } from 'layouts';
 import { MainPage } from 'pages';
@@ -10,7 +10,7 @@ import { Roulette } from 'pages/games/roulette';
 import { Slots } from 'pages/games/slots';
 import { Hummer } from 'pages/games/hummer';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     Component: MainLayout,
