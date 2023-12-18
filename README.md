@@ -1,6 +1,4 @@
-# React Casino 🎮
-
-## Technologies: 🎮
+## React Casino 🎮
 
 #### React, Redux Toolkit, RTK Query, Pixi.js
 
