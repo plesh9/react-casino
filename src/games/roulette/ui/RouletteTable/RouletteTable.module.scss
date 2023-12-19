@@ -1,0 +1,48 @@
+@import "src/assets/styles/constants";
+
+.table {
+    $size: 50;
+    max-width: toRem(12 * $size);
+
+    &__list {
+        @include flexRow(center);
+        flex-wrap: wrap;
+    }
+
+    &__number {
+        @include flexColumn(center, center);
+        width: toRem($size);
+        height: toRem($size);
+        border: toRem(1) solid $white;
+        font-weight: 500;
+        color: $white;
+
+        &.red {
+            background-color: $red;
+        }
+
+        &.black {
+            background-color: $dark_light;
+        }
+
+        &.active {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border: toRem(3) solid $gold;
+            }
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                filter: brightness(1.1);
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@import "src/assets/styles/constants";
+
+.scene {
+    @include flexColumn(center, center);
+    color: $white;
+    
+    &__ui {
+        position: relative;
+    }
+
+    &__info {
+        position: absolute;
+        top: 5%;
+        left: 0;
+        width: 100%;
+    }
+
+    &__table {
+        position: absolute;
+        top: 40%;
+        right: 5%;
+    }
+
+    &__bets {
+        position: absolute;
+        bottom: 15%;
+        right: 30%;
+    }
+}
