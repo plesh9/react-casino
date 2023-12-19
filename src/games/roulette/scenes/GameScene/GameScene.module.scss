@@ -1,0 +1,15 @@
+@import "src/constants/constans";
+
+.scene {
+    @include flexColumn(center, center);
+    
+    &__ui {
+        position: relative;
+    }
+
+    &__table {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+    }
+}

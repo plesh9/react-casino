@@ -1,0 +1,27 @@
+@import "src/constants/constans";
+
+.table {
+    $size: 50;
+    max-width: toRem(12 * $size);
+
+    &__list {
+        @include flexRow(center);
+        flex-wrap: wrap;
+    }
+
+    &__number {
+        @include flexColumn(center, center);
+        width: toRem($size);
+        height: toRem($size);
+        border: toRem(1) solid $white;
+        color: $white;
+
+        &.red {
+            background-color: $red;
+        }
+
+        &.black {
+            background-color: $dark_light;
+        }
+    }
+}
