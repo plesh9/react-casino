@@ -1,0 +1,24 @@
+@import "src/assets/styles/constants";
+
+.bets {
+    &__list {
+        @include flexRow(center);
+        column-gap: toRem(24);
+    }
+
+    &__item {
+        & img {
+            width: toRem(45);
+            height: toRem(45);
+            object-fit: contain;
+            object-position: center;
+            transition: transform $transition;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}

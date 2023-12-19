@@ -1,2 +1,3 @@
 export { RouletteTable } from './RouletteTable';
-export { BetPanel } from './BetPanel';
+export { BetsPanel } from './BetsPanel';
+export { InfoPanel } from './InfoPanel';

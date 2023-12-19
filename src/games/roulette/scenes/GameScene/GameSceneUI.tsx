@@ -1,5 +1,5 @@
-import { BetPanel, RouletteTable } from 'games/roulette/ui';
 import { FC, ReactNode } from 'react';
+import { BetsPanel, InfoPanel, RouletteTable } from 'games/roulette/ui';
 
 import s from './GameScene.module.scss';
 
@@ -10,11 +10,14 @@ interface GameSceneUIProps {
 export const GameSceneUI: FC<GameSceneUIProps> = ({ children }) => {
   return (
     <div className={s.scene__ui}>
+      <div className={s.scene__info}>
+        <InfoPanel />
+      </div>
       <div className={s.scene__table}>
         <RouletteTable />
       </div>
-      <div className={s.scene__panel}>
-        <BetPanel />
+      <div className={s.scene__bets}>
+        <BetsPanel />
       </div>
       {children}
     </div>
