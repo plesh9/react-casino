@@ -1,4 +1,4 @@
-import { RouletteTable } from 'games/roulette/ui';
+import { BetPanel, RouletteTable } from 'games/roulette/ui';
 import { FC, ReactNode } from 'react';
 
 import s from './GameScene.module.scss';
@@ -12,6 +12,9 @@ export const GameSceneUI: FC<GameSceneUIProps> = ({ children }) => {
     <div className={s.scene__ui}>
       <div className={s.scene__table}>
         <RouletteTable />
+      </div>
+      <div className={s.scene__panel}>
+        <BetPanel />
       </div>
       {children}
     </div>

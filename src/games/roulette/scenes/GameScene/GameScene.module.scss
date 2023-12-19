@@ -9,7 +9,13 @@
 
     &__table {
         position: absolute;
-        top: 50%;
+        top: 40%;
+        right: 5%;
+    }
+
+    &__panel {
+        position: absolute;
+        bottom: 5%;
         right: 5%;
     }
 }
