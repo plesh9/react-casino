@@ -1,6 +1,10 @@
 import { RootState } from 'app/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ROULETTE_NUMBERS } from './numbers';
+
+const ROULETTE_NUMBERS = [
+  0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24,
+  16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26,
+];
 
 interface RouletteSpinState {
   readonly rouletteNumbers: number[];
@@ -8,7 +12,7 @@ interface RouletteSpinState {
   speed: number;
   rotationInProgress: boolean;
   degreesRotation: number;
-  currentNumber: number;
+  currentNumber: number | null;
 }
 
 const initialState: RouletteSpinState = {
@@ -17,7 +21,7 @@ const initialState: RouletteSpinState = {
   speed: 0,
   rotationInProgress: false,
   degreesRotation: 0,
-  currentNumber: 0,
+  currentNumber: null,
 };
 
 const rouletteSpinSlice = createSlice({
@@ -51,6 +55,10 @@ const rouletteSpinSlice = createSlice({
 
       state.currentNumber = state.rouletteNumbers[currentIndex];
     },
+
+    clearRouletteSpin: (state) => {
+      state.currentNumber = null;
+    },
   },
 });
 
@@ -58,11 +66,14 @@ export const {
   setRouletteSpinSpeed,
   setRouletteSpinStartSpeed,
   setRouletteDegreesRotation,
+  clearRouletteSpin,
 } = rouletteSpinSlice.actions;
 
 export const selectRouletteSpinSpeed = (state: RootState) =>
   state.rouletteSpin.speed;
 export const selectRouletteSpinRotationInProgress = (state: RootState) =>
   state.rouletteSpin.rotationInProgress;
+export const selectRouletteSpinCurrentNumber = (state: RootState) =>
+  state.rouletteSpin.currentNumber;
 
 export default rouletteSpinSlice.reducer;

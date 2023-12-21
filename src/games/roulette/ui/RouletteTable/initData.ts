@@ -41,35 +41,35 @@ export const ROULETTE_TABLE_NUMBERS = [
   },
   {
     number: 11,
-    color: 'red',
+    color: 'black',
   },
   {
     number: 12,
-    color: 'black',
+    color: 'red',
   },
   {
     number: 13,
-    color: 'red',
+    color: 'black',
   },
   {
     number: 14,
-    color: 'black',
+    color: 'red',
   },
   {
     number: 15,
-    color: 'red',
+    color: 'black',
   },
   {
     number: 16,
-    color: 'black',
-  },
-  {
-    number: 17,
     color: 'red',
   },
   {
-    number: 18,
+    number: 17,
     color: 'black',
+  },
+  {
+    number: 18,
+    color: 'red',
   },
   {
     number: 19,
@@ -113,34 +113,34 @@ export const ROULETTE_TABLE_NUMBERS = [
   },
   {
     number: 29,
-    color: 'red',
+    color: 'black',
   },
   {
     number: 30,
-    color: 'black',
+    color: 'red',
   },
   {
     number: 31,
-    color: 'red',
+    color: 'black',
   },
   {
     number: 32,
-    color: 'black',
+    color: 'red',
   },
   {
     number: 33,
-    color: 'red',
+    color: 'black',
   },
   {
     number: 34,
-    color: 'black',
-  },
-  {
-    number: 35,
     color: 'red',
   },
   {
-    number: 36,
+    number: 35,
     color: 'black',
+  },
+  {
+    number: 36,
+    color: 'red',
   },
 ];

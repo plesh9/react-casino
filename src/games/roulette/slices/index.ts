@@ -1,9 +1,17 @@
 export {
   default as rouletteSlice,
+  RouletteLifecycle,
+  RouletteWinOrLose,
   setActiveNumber,
-  selectActiveNumber,
   setCurrentBet,
+  setRouletteLifecycle,
+  setRouletteWinOrLose,
+  clearRoulette,
   selectCurrentBet,
+  selectActiveNumber,
+  selectRouletteLifecycle,
+  selectRouletteWinBet,
+  selectRouletteWinOrLose,
 } from './rouletteSlice';
 
 export {
@@ -11,6 +19,8 @@ export {
   setRouletteSpinStartSpeed,
   setRouletteSpinSpeed,
   setRouletteDegreesRotation,
+  clearRouletteSpin,
   selectRouletteSpinSpeed,
   selectRouletteSpinRotationInProgress,
+  selectRouletteSpinCurrentNumber,
 } from './rouletteSpinSlice';
