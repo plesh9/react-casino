@@ -5,3 +5,12 @@ export {
   setCurrentBet,
   selectCurrentBet,
 } from './rouletteSlice';
+
+export {
+  default as rouletteSpinSlice,
+  setRouletteSpinStartSpeed,
+  setRouletteSpinSpeed,
+  setRouletteDegreesRotation,
+  selectRouletteSpinSpeed,
+  selectRouletteSpinRotationInProgress,
+} from './rouletteSpinSlice';

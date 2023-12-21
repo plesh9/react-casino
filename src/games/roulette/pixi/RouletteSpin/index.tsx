@@ -1,11 +1,19 @@
 import { FC, useState } from 'react';
 import { Container, Sprite, useTick } from '@pixi/react';
+import { useAppDispatch, useAppSelector } from 'app/store/hooks';
+import {
+  selectRouletteSpinRotationInProgress,
+  selectRouletteSpinSpeed,
+  setRouletteDegreesRotation,
+  setRouletteSpinSpeed,
+} from 'games/roulette/slices';
 
 import externalCircle from 'assets/images/roulette/external-circle.png';
 import mediumCircle from 'assets/images/roulette/medium-circle.png';
 import internalCircle from 'assets/images/roulette/internal-circle.png';
 import arrow from 'assets/images/roulette/arrow.png';
 import wheel from 'assets/images/roulette/wheel.png';
+import { radianToDegrees } from 'shared/lib/degrees';
 
 interface RouletteSpinPXProps {}
 
@@ -15,22 +23,39 @@ const POSITION_SPIN = {
 };
 
 const POSITION_ARROW = {
-  x: 290,
-  y: 220,
-  rotation: 0.4,
+  x: 200,
+  y: 170,
+  rotation: -0.45,
 };
 
-const SPEED = 0.05;
-
 export const RouletteSpinPX: FC<RouletteSpinPXProps> = () => {
+  const dispatch = useAppDispatch();
+
+  const speed = useAppSelector(selectRouletteSpinSpeed);
+  const rotationInProgress = useAppSelector(
+    selectRouletteSpinRotationInProgress
+  );
   const [rotationMedium, setRotationMedium] = useState(0);
   const [rotationWheel, setRotationWheel] = useState(0);
 
   useTick((delta) => {
-    const rotation = delta * SPEED;
+    if (!rotationInProgress) return;
+
+    const rotation = delta * speed;
 
     setRotationMedium((prev) => prev + rotation);
     setRotationWheel((prev) => prev - rotation);
+
+    if (speed < 0.005) {
+      dispatch(setRouletteSpinSpeed(0));
+      dispatch(
+        setRouletteDegreesRotation(
+          radianToDegrees(rotationMedium % (Math.PI * 2))
+        )
+      );
+    } else {
+      dispatch(setRouletteSpinSpeed(null));
+    }
   });
 
   return (

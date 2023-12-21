@@ -27,6 +27,8 @@
 
         &.active {
             position: relative;
+            color: $gold;
+            filter: brightness(1.1);
 
             &::before {
                 content: "";

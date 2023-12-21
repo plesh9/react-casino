@@ -3,6 +3,7 @@ import { useAppSelector } from 'app/store/hooks';
 import { selectActiveNumber, selectCurrentBet } from 'games/roulette/slices';
 
 import s from './InfoPanel.module.scss';
+import { selectBalance } from 'entities/wallet/slices';
 
 interface InfoPanelProps {}
 
@@ -32,6 +33,7 @@ const ITEMS = [
 export const InfoPanel: FC<InfoPanelProps> = () => {
   const activeNumber = useAppSelector(selectActiveNumber);
   const currentBet = useAppSelector(selectCurrentBet);
+  const balance = useAppSelector(selectBalance);
 
   return (
     <div className={s.info}>
@@ -43,6 +45,7 @@ export const InfoPanel: FC<InfoPanelProps> = () => {
               <span>
                 {
                   {
+                    balance,
                     activeNumber,
                     currentBet,
                   }[id]

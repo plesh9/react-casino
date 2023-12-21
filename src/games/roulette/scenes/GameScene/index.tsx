@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Stage } from '@pixi/react';
+import { Stage } from 'app/config/contextBridge';
 import { RouletteSpinPX } from 'games/roulette/pixi';
 import { GameSceneUI } from './GameSceneUI';
 
