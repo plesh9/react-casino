@@ -3,7 +3,7 @@ import { RootState } from 'app/store';
 import { IWallet } from './../model/Wallet';
 
 const initialState: IWallet = {
-  gameBalance: 0,
+  gameBalance: 5000,
 };
 
 const walletSlice = createSlice({

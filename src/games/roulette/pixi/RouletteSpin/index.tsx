@@ -2,18 +2,21 @@ import { FC, useState } from 'react';
 import { Container, Sprite, useTick } from '@pixi/react';
 import { useAppDispatch, useAppSelector } from 'app/store/hooks';
 import {
+  RouletteLifecycle,
   selectRouletteSpinRotationInProgress,
   selectRouletteSpinSpeed,
   setRouletteDegreesRotation,
+  setRouletteLifecycle,
   setRouletteSpinSpeed,
 } from 'games/roulette/slices';
+
+import { radianToDegrees } from 'shared/lib/degrees';
 
 import externalCircle from 'assets/images/roulette/external-circle.png';
 import mediumCircle from 'assets/images/roulette/medium-circle.png';
 import internalCircle from 'assets/images/roulette/internal-circle.png';
 import arrow from 'assets/images/roulette/arrow.png';
 import wheel from 'assets/images/roulette/wheel.png';
-import { radianToDegrees } from 'shared/lib/degrees';
 
 interface RouletteSpinPXProps {}
 
@@ -53,6 +56,7 @@ export const RouletteSpinPX: FC<RouletteSpinPXProps> = () => {
           radianToDegrees(rotationMedium % (Math.PI * 2))
         )
       );
+      dispatch(setRouletteLifecycle(RouletteLifecycle.FINISHED));
     } else {
       dispatch(setRouletteSpinSpeed(null));
     }
