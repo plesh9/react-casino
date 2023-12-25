@@ -1,57 +1,66 @@
 import { FC } from 'react';
 import { useAppSelector } from 'app/store/hooks';
+import { selectBalance } from 'entities/wallet/slices';
 import { selectActiveNumber, selectCurrentBet } from 'games/roulette/slices';
+import { ScoreWindow } from 'games/roulette/shared/ScoreWindow';
+
+import Balance from 'assets/images/roulette/balance.png';
+import WinBet from 'assets/images/roulette/win-bet.png';
+import Bet from 'assets/images/roulette/bet.png';
+import BetNumber from 'assets/images/roulette/bet-number.png';
 
 import s from './InfoPanel.module.scss';
-import { selectBalance } from 'entities/wallet/slices';
 
-interface InfoPanelProps {}
+interface IScoreItem {
+  id: 'balance' | 'winBet' | 'currentBet' | 'activeNumber';
+  title: string;
+  icon: string;
+}
 
-const ITEMS = [
+const ITEMS: IScoreItem[] = [
   {
     id: 'balance',
     title: 'Balance',
-    icon: '',
+    icon: Balance,
   },
   {
     id: 'winBet',
     title: 'Win Bet',
-    icon: '',
+    icon: WinBet,
   },
   {
     id: 'currentBet',
     title: 'Bet',
-    icon: '',
+    icon: Bet,
   },
   {
     id: 'activeNumber',
     title: 'Bet Number',
-    icon: '',
+    icon: BetNumber,
   },
 ];
 
-export const InfoPanel: FC<InfoPanelProps> = () => {
+export const InfoPanel: FC = () => {
   const activeNumber = useAppSelector(selectActiveNumber);
   const currentBet = useAppSelector(selectCurrentBet);
   const balance = useAppSelector(selectBalance);
+  const winBet = 144;
 
   return (
     <div className={s.info}>
       <ul className={s.info__list}>
         {ITEMS.map(({ id, title, icon }) => (
-          <li className={s.item} key={id}>
-            <span className={s.item__title}>{title}</span>
-            <div className={s.item__block}>
-              <span>
+          <li key={id}>
+            <ScoreWindow label={title} icon={icon}>
+              {
                 {
-                  {
-                    balance,
-                    activeNumber,
-                    currentBet,
-                  }[id]
-                }
-              </span>
-            </div>
+                  balance,
+                  activeNumber,
+                  currentBet,
+                  winBet,
+                }[id]
+              }
+            </ScoreWindow>
           </li>
         ))}
       </ul>

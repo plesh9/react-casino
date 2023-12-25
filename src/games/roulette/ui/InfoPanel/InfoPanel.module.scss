@@ -1,21 +1,11 @@
 @import "src/assets/styles/constants";
 
 .info {
-    padding: 0 toRem(24);
-    
+    padding: 0 toRem(60) 0 toRem(72);
+
     &__list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: toRem(24);
-    }
-
-    .item {
-        &__title {
-
-        }
-
-        &__block {
-
-        }
     }
 }

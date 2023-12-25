@@ -6,7 +6,7 @@ interface GamesLayoutProps {}
 export const GamesLayout: FC<GamesLayoutProps> = () => {
   return (
     <div>
-      <div>Header Game</div>
+      {/* <div>Header Game</div> */}
       <Outlet />
     </div>
   );
