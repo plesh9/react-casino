@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { Container, Sprite, useTick } from '@pixi/react';
+import { sound } from '@pixi/sound';
 import { useAppDispatch, useAppSelector } from 'app/store/hooks';
 import {
   RouletteLifecycle,
@@ -17,17 +18,19 @@ import mediumCircle from 'assets/images/roulette/medium-circle.png';
 import internalCircle from 'assets/images/roulette/internal-circle.png';
 import arrow from 'assets/images/roulette/arrow.png';
 import wheel from 'assets/images/roulette/wheel.png';
+import bgRoulette from 'assets/images/roulette/bg-roulette.png';
+import { ROULETEE_SOUNDS } from 'games/roulette/scenes/GameScene/config';
 
 interface RouletteSpinPXProps {}
 
 const POSITION_SPIN = {
-  x: 200,
-  y: 300,
+  x: 264,
+  y: 317,
 };
 
 const POSITION_ARROW = {
-  x: 200,
-  y: 170,
+  x: 264,
+  y: 190,
   rotation: -0.45,
 };
 
@@ -57,6 +60,7 @@ export const RouletteSpinPX: FC<RouletteSpinPXProps> = () => {
         )
       );
       dispatch(setRouletteLifecycle(RouletteLifecycle.FINISHED));
+      sound.stop(ROULETEE_SOUNDS.spin);
     } else {
       dispatch(setRouletteSpinSpeed(null));
     }
@@ -64,6 +68,7 @@ export const RouletteSpinPX: FC<RouletteSpinPXProps> = () => {
 
   return (
     <Container>
+      <Sprite image={bgRoulette} x={425} y={530} anchor={1} />
       <Sprite
         image={externalCircle}
         x={POSITION_SPIN.x}

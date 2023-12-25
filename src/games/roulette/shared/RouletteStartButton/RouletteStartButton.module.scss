@@ -1,0 +1,11 @@
+@import "src/assets/styles/constants";
+
+.button {
+    transition: filter $transition;
+    
+    @media (any-hover: hover) {
+        &:hover {
+            filter: brightness(1.1);
+        }
+    }
+}

@@ -16,7 +16,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
-    camelcase: 'error',
     'no-console': 'warn',
     'no-floating-decimal': 'error',
     'no-sequences': 'error',

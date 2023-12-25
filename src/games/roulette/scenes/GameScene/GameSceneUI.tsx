@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
 import { BetsPanel, InfoPanel, RouletteTable } from 'games/roulette/ui';
+import { EventPanel } from 'games/roulette/ui/EventPanel';
 
 import s from './GameScene.module.scss';
-import { EventPanel } from 'games/roulette/ui/EventPanel';
 
 interface GameSceneUIProps {
   children: ReactNode;

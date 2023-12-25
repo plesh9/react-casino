@@ -17,7 +17,7 @@ interface RouletteState {
   readonly winBet: 36;
   lifecycle: `${RouletteLifecycle}`;
   winOrLose: `${RouletteWinOrLose}` | null;
-  activeNumber: number | null;
+  activeNumber: number;
   currentBet: number;
 }
 
@@ -25,7 +25,7 @@ const initialState: RouletteState = {
   winBet: 36,
   lifecycle: RouletteLifecycle.READY_TO_START,
   winOrLose: null,
-  activeNumber: null,
+  activeNumber: 0,
   currentBet: 0,
 };
 
@@ -57,7 +57,7 @@ const rouletteSlice = createSlice({
     },
 
     clearRoulette: (state) => {
-      state.activeNumber = null;
+      state.activeNumber = 0;
       state.currentBet = 0;
     },
   },

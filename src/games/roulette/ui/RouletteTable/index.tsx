@@ -7,6 +7,8 @@ import { ROULETTE_TABLE_NUMBERS } from './initData';
 import classNames from 'classnames';
 
 import s from './RouletteTable.module.scss';
+import { sound } from '@pixi/sound';
+import { ROULETEE_SOUNDS } from 'games/roulette/scenes/GameScene/config';
 
 interface RouletteTableProps {}
 
@@ -16,6 +18,7 @@ export const RouletteTable: FC<RouletteTableProps> = () => {
 
   const handleClickNumber = (number: number) => {
     dispatch(setActiveNumber(number));
+    sound.play(ROULETEE_SOUNDS.number);
   };
 
   return (
